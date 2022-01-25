@@ -1,10 +1,7 @@
 import sys
-from turtle import window_height, window_width
 from PySide6.QtWidgets import QApplication, QWidget
 from PySide6.QtCore import QParallelAnimationGroup, QPropertyAnimation, QPoint, QSequentialAnimationGroup, QSize
-import ctypes
-
-from pruebas import imprimir_informacion
+import ctypes 
 
 class Window(QWidget):
     def __init__(self):
@@ -51,8 +48,10 @@ class Window(QWidget):
         self.anim_group.addAnimation(self.anim_5)
         self.anim_group.start()
 
-        print(window_height)
-        print(window_width)
+# Para hacer el rebote perfectamente necesito saber:
+#                                                   el tamaño del widget (para restar las medidas a las lineas que conforman la ventana y no se pase de largo o corto).
+#                                                   el tamaño actual de la ventana(para saber cuando tiene que rebotar).
+#           crear una clase que haga que importando la clase, con solo pasarle el boton de inicio los QWidgets que indique puedan empezar a rebotar
 
         
 
