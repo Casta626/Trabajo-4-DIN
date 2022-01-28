@@ -7,6 +7,15 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
 
+        # Cuando termine la aplicacion pongo el child widget y a partir de ese le tomo las medidas.
+        # ALternativa utilizar el .parentWidget.
+        # child.size
+
+
+        # Necesito crear un widget padre de este para crear el componente como hijo y apartir de ahí darle las medidas que tenga.
+
+        # Como ultima opción siempre puedo dejar un tamaño definido y hacerlo a partir de ahí.
+
         user32 = ctypes.windll.user32
         user32.SetProcessDPIAware()
         ancho, alto = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
@@ -16,6 +25,8 @@ class Window(QWidget):
         self.child = QWidget(self)
         self.child.setStyleSheet("background-color:red;border-radius:15px;")
         self.child.resize(0, 0)
+        
+        print(self.child.size)
 
         self.anim = QPropertyAnimation(self.child, b"pos")
         self.anim.setEndValue(QPoint(0, 0))
