@@ -68,8 +68,6 @@ class MainWindow(QWidget):
         # una resolucion menos.
         #La multiplicacion por 2 en las dos variables son para dividir la ventana en cuatro y así que ocupe un cuarto
         #de pantalla.
-        self.horizontalSlider = QSlider()
-        self.horizontalSlider.setGeometry(QRect(10, 500, 781, 16))
 
         self.setFixedWidth(anchura)
         self.setFixedHeight(altura)
@@ -123,7 +121,7 @@ class MainWindow(QWidget):
         self.anim_group.resume()
         self.anim_group.stop() # Lo para por completo
         self.anim_group.start()
-        self.anim_group.setLoopCount(10)
+        self.anim_group.setLoopCount(5)
         if(self.anim_group.loopCount()==3):
             self.anim_group.pause()
         print(self.anim_group.loopCount())
