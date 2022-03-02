@@ -22,20 +22,32 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QMenuBar,
 import recursos
 
 class Ui_MainWindow(object):
+        
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
-        self.actionComenzar = QAction(MainWindow)
-        self.actionComenzar.setObjectName(u"actionComenzar")
+        self.velocidad = 750
+        self.actionPlay_Resume = QAction(MainWindow)
+        self.actionPlay_Resume.setObjectName(u"actionPlay_Resume")
         icon = QIcon()
-        icon.addFile(u":/botones/boton-de-play.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.actionComenzar.setIcon(icon)
-        self.actionPausar = QAction(MainWindow)
-        self.actionPausar.setObjectName(u"actionPausar")
+        icon.addFile(u":/botones/boton-doble.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.actionPlay_Resume.setIcon(icon)
+        self.actionStop = QAction(MainWindow)
+        self.actionStop.setObjectName(u"actionStop")
         icon1 = QIcon()
-        icon1.addFile(u":/botones/boton-de-pausa.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.actionPausar.setIcon(icon1)
+        icon1.addFile(u":/botones/stop.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.actionStop.setIcon(icon1)
+        self.actionAdvance_velocity = QAction(MainWindow)
+        self.actionAdvance_velocity.setObjectName(u"actionAdvance_velocity")
+        icon2 = QIcon()
+        icon2.addFile(u":/botones/fast-forward.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.actionAdvance_velocity.setIcon(icon2)
+        self.actionRewind_velocity = QAction(MainWindow)
+        self.actionRewind_velocity.setObjectName(u"actionRewind_velocity")
+        icon3 = QIcon()
+        icon3.addFile(u":/botones/rewind.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.actionRewind_velocity.setIcon(icon3)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalSlider = QSlider(self.centralwidget)
@@ -57,10 +69,14 @@ class Ui_MainWindow(object):
         MainWindow.addToolBar(Qt.TopToolBarArea, self.toolBar)
 
         self.menubar.addAction(self.menuAcciones.menuAction())
-        self.menuAcciones.addAction(self.actionComenzar)
-        self.menuAcciones.addAction(self.actionPausar)
-        self.toolBar.addAction(self.actionComenzar)
-        self.toolBar.addAction(self.actionPausar)
+        self.menuAcciones.addAction(self.actionPlay_Resume)
+        self.menuAcciones.addAction(self.actionStop)
+        self.menuAcciones.addAction(self.actionAdvance_velocity)
+        self.menuAcciones.addAction(self.actionRewind_velocity)
+        self.toolBar.addAction(self.actionStop)
+        self.toolBar.addAction(self.actionRewind_velocity)
+        self.toolBar.addAction(self.actionPlay_Resume)
+        self.toolBar.addAction(self.actionAdvance_velocity)
 
         self.retranslateUi(MainWindow)
 
@@ -69,15 +85,23 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.actionComenzar.setText(QCoreApplication.translate("MainWindow", u"Comenzar", None))
+        self.actionPlay_Resume.setText(QCoreApplication.translate("MainWindow", u"Play/Resume", None))
 #if QT_CONFIG(shortcut)
-        self.actionComenzar.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+R", None))
+        self.actionPlay_Resume.setShortcut(QCoreApplication.translate("MainWindow", u"Toggle Media Play/Pause", None))
 #endif // QT_CONFIG(shortcut)
-        self.actionPausar.setText(QCoreApplication.translate("MainWindow", u"Pausar", None))
+        self.actionStop.setText(QCoreApplication.translate("MainWindow", u"Stop", None))
 #if QT_CONFIG(shortcut)
-        self.actionPausar.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+T", None))
+        self.actionStop.setShortcut(QCoreApplication.translate("MainWindow", u"Media Stop", None))
 #endif // QT_CONFIG(shortcut)
-        self.menuAcciones.setTitle(QCoreApplication.translate("MainWindow", u"Acciones", None))
+        self.actionAdvance_velocity.setText(QCoreApplication.translate("MainWindow", u"Advance (velocity)", None))
+#if QT_CONFIG(shortcut)
+        self.actionAdvance_velocity.setShortcut(QCoreApplication.translate("MainWindow", u"Media Next", None))
+#endif // QT_CONFIG(shortcut)
+        self.actionRewind_velocity.setText(QCoreApplication.translate("MainWindow", u"Rewind (velocity)", None))
+#if QT_CONFIG(shortcut)
+        self.actionRewind_velocity.setShortcut(QCoreApplication.translate("MainWindow", u"Media Previous", None))
+#endif // QT_CONFIG(shortcut)
+        self.menuAcciones.setTitle(QCoreApplication.translate("MainWindow", u"Actions", None))
         self.toolBar.setWindowTitle(QCoreApplication.translate("MainWindow", u"toolBar", None))
     # retranslateUi
 
