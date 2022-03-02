@@ -117,7 +117,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         # self.anim_group.resume()
         # self.anim_group.stop() # Lo para por completo
         
-        self.anim_group.setLoopCount(50)
+        self.anim_group.setLoopCount(1)
         self.anim_group.start() # Solo falta ajustar la variable de velocidad para que la pille los .setDuration al momento que se cambia 
 
         self.horizontalSlider.setGeometry(QRect(50, altura-100, anchura-100, 16))
