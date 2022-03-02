@@ -53,10 +53,10 @@ class Window(QWidget):
         # Grupo de animación paralela
         # self.anim_group = QParallelAnimationGroup()
         self.anim_group.addAnimation(self.anim)
-        self.anim_group.addAnimation(self.anim_2)
-        self.anim_group.addAnimation(self.anim_3)
-        self.anim_group.addAnimation(self.anim_4)
-        self.anim_group.addAnimation(self.anim_5)
+        # self.anim_group.addAnimation(self.anim_2)
+        # self.anim_group.addAnimation(self.anim_3)
+        # self.anim_group.addAnimation(self.anim_4)
+        # self.anim_group.addAnimation(self.anim_5)
         self.anim_group.start()
 
 # Para hacer el rebote perfectamente necesito saber:
