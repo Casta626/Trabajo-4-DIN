@@ -82,19 +82,23 @@ class MainWindow(Ui_MainWindow, QMainWindow):
 
         self.anim = QPropertyAnimation(self.bola, b"pos")
         self.anim.setEndValue(QPoint(anchura/4, altura-74))
-        self.anim.setDuration(self.gestorVelocidad(self.velocidad))
+        # self.anim.setDuration(self.gestorVelocidad(self.velocidad))
+        self.anim.setDuration(750)
 
         self.anim_2 = QPropertyAnimation(self.bola, b"pos")
         self.anim_2.setEndValue(QPoint(anchura-100, altura*2/5))
-        self.anim_2.setDuration(self.gestorVelocidad(self.velocidad))
+        # self.anim_2.setDuration(self.gestorVelocidad(self.velocidad))
+        self.anim_2.setDuration(750)
 
         self.anim_3 = QPropertyAnimation(self.bola, b"pos")
         self.anim_3.setEndValue(QPoint(anchura*2/5, 54)) #Ahora hay que añadir 54 pixeles por la toolbar y la actionBar
-        self.anim_3.setDuration(self.gestorVelocidad(self.velocidad))
+        # self.anim_3.setDuration(self.gestorVelocidad(self.velocidad))
+        self.anim_3.setDuration(750)
 
         self.anim_4 = QPropertyAnimation(self.bola, b"pos")
         self.anim_4.setEndValue(QPoint(0, altura/2))
-        self.anim_4.setDuration(self.gestorVelocidad(self.velocidad))
+        # self.anim_4.setDuration(self.gestorVelocidad(self.velocidad))
+        self.anim_4.setDuration(750)
 
         self.anim_5 = QPropertyAnimation(self.bola, b"pos")
         self.anim_5.setEndValue(QPoint(200, 200))
