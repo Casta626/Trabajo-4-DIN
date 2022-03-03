@@ -138,7 +138,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.horizontalSlider.valueChanged.connect(self.gestorVelocidad)
     def gestorVelocidad(self, velocidad):
         print(self.horizontalSlider.value())
-        velocidad = 10000 - self.velocidad
+        self.velocidad = 10000 - velocidad
         return velocidad
 
     def gestorVelocidad2(self):
