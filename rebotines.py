@@ -54,6 +54,7 @@ class Ui_MainWindow(object):
         self.horizontalSlider.setObjectName(u"horizontalSlider")
         self.horizontalSlider.setGeometry(QRect(10, 500, 781, 16))
         self.horizontalSlider.setOrientation(Qt.Horizontal)
+        self.horizontalSlider.setStyleSheet("color:yellow")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
@@ -77,6 +78,9 @@ class Ui_MainWindow(object):
         self.toolBar.addAction(self.actionRewind_velocity)
         self.toolBar.addAction(self.actionPlay_Resume)
         self.toolBar.addAction(self.actionAdvance_velocity)
+
+        
+        
 
         self.retranslateUi(MainWindow)
 

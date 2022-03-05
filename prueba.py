@@ -5,44 +5,61 @@ from PySide6.QtWidgets import QLabel, QWidget, QApplication, QSlider, QGroupBox,
 import sys
 
 from rebotines import Ui_MainWindow
-def mask_image(imgdata, imgtype ='jpg', size = 100): 
-  
-        image = QImage.fromData(imgdata, imgtype) 
-        image.convertToFormat(QImage.Format_ARGB32) 
-    
-        imgsize = min(image.width(), image.height()) 
-        rect = QRect( 
-            (image.width() - imgsize) / 2, 
-            (image.height() - imgsize) / 2, 
-            imgsize, 
-            imgsize, 
-        ) 
-        
-        image = image.copy(rect) 
-    
-        out_img = QImage(imgsize, imgsize, QImage.Format_ARGB32) 
-        out_img.fill(Qt.transparent) 
-    
-        brush = QBrush(image) 
-    
-        painter = QPainter(out_img) 
-        painter.setBrush(brush) 
-    
-        painter.setPen(Qt.NoPen) 
-    
-        painter.drawEllipse(0, 0, imgsize, imgsize) 
-        
-        painter.end() 
-    
-        pr = QWindow().devicePixelRatio() 
-        pm = QPixmap.fromImage(out_img) 
-        pm.setDevicePixelRatio(pr) 
-        size *= pr 
-        pm = pm.scaled(size, size, Qt.KeepAspectRatio,  
-                                Qt.SmoothTransformation) 
-        return pm 
+ 
 
 class MainWindow(Ui_MainWindow, QMainWindow):
+
+    def g(self,imgdata, imgtype, sizex): 
+  
+        self.sizex = 100
+        self.imgtype ='jpg'
+        self.img = QImage.fromData(imgdata, imgtype) 
+        self.img.convertToFormat(QImage.Format_ARGB32) 
+    
+        self.imgsize = min(self.img.width(), self.img.height()) 
+        rect = QRect( 
+            (self.img.width() - self.imgsize) / 2, 
+            (self.img.height() - self.imgsize) / 2, 
+            self.imgsize, 
+            self.imgsize, 
+        ) 
+        
+        self.img = self.img.copy(rect) 
+    
+        self.out_img = QImage(self.imgsize, self.imgsize, QImage.Format_ARGB32) 
+        self.out_img.fill(Qt.transparent) 
+    
+        self.brush = QBrush(self.img) 
+    
+        self.painter = QPainter(self.out_img) 
+        self.painter.setBrush(self.brush) 
+    
+        self.painter.setPen(Qt.NoPen) 
+    
+        self.painter.drawEllipse(0, 0, self.imgsize, self.imgsize) 
+        
+        self.painter.end() 
+    
+        self.pr = QWindow().devicePixelRatio() 
+        self.pm = QPixmap.fromImage(self.out_img) 
+        self.pm.setDevicePixelRatio(self.pr) 
+        sizex *= self.pr 
+        self.pm = self.pm.scaled(sizex, sizex, Qt.KeepAspectRatio,  
+                                Qt.SmoothTransformation) 
+        return self.pm
+
+    @property
+    def imagenes(self, img, type, size):
+        self.imgpath =img
+        self.imgtype = type
+        self.sizex = size
+
+    @imagenes.setter
+    def image(self, img, type, size):
+        self.imgpath =img
+        self.imgtype = type
+        self.sizex = size
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -63,15 +80,25 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.setFixedWidth(anchura)
         self.setFixedHeight(altura)
         
-        imgpath = "amsiedad.jpg"
+        self.imgpath = "amsiedad.jpg"
+
+        self.imgtype = "jpg"
+
+        self.sizex = 25
+
+        # self.imagenes("kk.png", "png", 56)
+
+        print(self.imgpath)
+        print(self.imgtype)
+        print(self.sizex)
         
-        imgdata = open(imgpath, 'rb').read() 
+        self.imgdata = open(self.imgpath, 'rb').read() 
         
-        pixmap = mask_image(imgdata) 
+        self.pixmap = self.g(self.imgdata,self.imgtype,self.sizex) 
         
         self.bola = QLabel(self) 
         
-        self.bola.setPixmap(pixmap) 
+        self.bola.setPixmap(self.pixmap) 
         
         self.bola.move(0, altura/2)
 
@@ -136,10 +163,25 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         self.actionAdvance_velocity.triggered.connect(self.aumentarVelocidad)
         self.actionRewind_velocity.triggered.connect(self.disminuirVelocidad)
 
-        
-
 
         self.horizontalSlider.valueChanged.connect(self.gestorVelocidad)
+
+        stl = """{
+                margin = 0,
+                bg_size = 20,
+                bg_radius = 1e,
+                bg color = "#1ble23",
+                bg_color_hover = "#1e2229",
+                handle_margin = 2,
+                handle_size = 16,
+                handle_radius = 8,
+                handle color = "#568af2",
+                handle_color_hover = "#6c99f4",
+                handle_color_pressed = "#3f6fd1"
+                }"""
+
+        self.horizontalSlider.setStyleSheet("color:yellow")
+
     def gestorVelocidad(self, velocidad):
         print(self.horizontalSlider.value())
         self.velocidad = 10000 - velocidad
@@ -174,6 +216,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
             self.bool = True
 
 app = QApplication(sys.argv)
+
 window = MainWindow()
 window.show()
 app.exec()
