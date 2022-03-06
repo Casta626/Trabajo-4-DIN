@@ -1,6 +1,6 @@
 # Documentación Rebotines
 Componente Personalizado con QT y Python
-## Antes que nada decir que es mejor ver el código desde el repositorio[https://github.com/Casta626/Trabajo-4-DIN].
+## Antes que nada decir que es mejor ver el código desde el [repositorio](https://github.com/Casta626/Trabajo-4-DIN).
 ### El código de rebotines es bastante simple, se divide en tres archivos:
 ## ui_rebotines.py
 ### Aquí esta todo el código que se refiere a la interfaz, si quieres contribuir puedes modificar lo que quieras siempre y cuando no afecte luego a los test (más adelante los enseñaré), este es su código:
