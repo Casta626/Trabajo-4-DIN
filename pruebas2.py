@@ -4,7 +4,7 @@ from PySide6.QtGui import QImage, QBrush, QPainter, QWindow, QPixmap, Qt, QActio
 from PySide6.QtWidgets import QLabel, QWidget, QApplication, QSlider, QGroupBox, QMainWindow, QMenuBar, QMenu, QStatusBar, QToolBar
 import sys
 
-from rebotines import Ui_MainWindow
+from ui_rebotines import Ui_MainWindow
 def mask_image(imgdata, imgtype ='jpg', size = 100): 
   
         image = QImage.fromData(imgdata, imgtype) 
