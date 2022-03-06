@@ -148,7 +148,9 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         # self.anim_group.resume()
         # self.anim_group.stop() # Lo para por completo
         
-        self.anim_group.setLoopCount(1)
+        self.loops = 2
+
+        self.anim_group.setLoopCount(self.loops)
         self.anim_group.start() # Solo falta ajustar la variable de velocidad para que la pille los .setDuration al momento que se cambia 
 
         self.horizontalSlider.setGeometry(QRect(50, altura-100, anchura-100, 16))
@@ -215,8 +217,33 @@ class MainWindow(Ui_MainWindow, QMainWindow):
             self.anim_group.resume()
             self.bool = True
 
-app = QApplication(sys.argv)
+    def getImage(self):
+        return self.imgpath
+    def setImage(self, img):
+        self.imgpath = img
+    def getImageType(self):
+        return self.imgtype
+    def setImageType(self, extension):
+        self.imgtype = extension
+    def getImageSize(self):
+        return self.sizex
+    def setImageSize(self, size):
+        self.sizex = size
 
-window = MainWindow()
-window.show()
-app.exec()
+    def getLoop(self):
+        return self.loops
+    def setLoop(self, loop):
+        self.loops = loop
+
+    
+    value1 = Property(str, getImage, setImage)
+    value2 = Property(str, getImageType, setImageType)
+    value3 = Property(int, getImageSize, setImageSize)
+    value4 = Property(int, getLoop, setLoop)
+    
+
+# app = QApplication(sys.argv)
+
+# window = MainWindow()
+# window.show()
+# app.exec()
