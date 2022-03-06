@@ -9,7 +9,7 @@ from ui_rebotines import Ui_MainWindow
 
 class MainWindow(Ui_MainWindow, QMainWindow):
 
-    def g(self,imgdata, imgtype, sizex): 
+    def generaImagen(self,imgdata, imgtype, sizex): 
   
         self.sizex = 100
         self.imgtype ='jpg'
@@ -94,7 +94,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         
         self.imgdata = open(self.imgpath, 'rb').read() 
         
-        self.pixmap = self.g(self.imgdata,self.imgtype,self.sizex) 
+        self.pixmap = self.generaImagen(self.imgdata,self.imgtype,self.sizex) 
         
         self.bola = QLabel(self) 
         
