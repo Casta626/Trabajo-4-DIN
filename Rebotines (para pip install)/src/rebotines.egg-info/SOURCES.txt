@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/rebotines/__init__.py
+src/rebotines/pruebas2.py
+src/rebotines/rebotines.py
+src/rebotines/rebotines_demo.py
+src/rebotines/recursos.py
+src/rebotines/test.py
+src/rebotines/ui_rebotines.py
+src/rebotines.egg-info/PKG-INFO
+src/rebotines.egg-info/SOURCES.txt
+src/rebotines.egg-info/dependency_links.txt
+src/rebotines.egg-info/top_level.txt
