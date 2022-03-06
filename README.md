@@ -1,6 +1,8 @@
 # Documentación Rebotines
 Componente Personalizado con QT y Python
 ## Antes que nada decir que es mejor ver el código desde el [repositorio](https://github.com/Casta626/Trabajo-4-DIN).
+## Tambiém puedes descargarlo desde la ventana de comandos con el comando:
+pip install -i https://test.pypi.org/simple/ rebotines==0.1
 ### El código de rebotines es bastante simple, se divide en tres archivos:
 ## ui_rebotines.py
 ### Aquí esta todo el código que se refiere a la interfaz, si quieres contribuir puedes modificar lo que quieras siempre y cuando no afecte luego a los test (más adelante los enseñaré), este es su código:
@@ -356,6 +358,27 @@ Componente Personalizado con QT y Python
    pip install unitest
    pip install pytest
    
+   ## Por último está el archivp rebotines_demo.py que en él se encuentra una forma de instanciarlo, pero igualmente la dejo por aquí:
+      from PySide6 import QtWidgets
+      from rebotines import MainWindow
+
+      class Window(QtWidgets.QMainWindow):
+
+          def __init__(self):
+              super().__init__()
+              mainToggle = MainWindow()
+              mainToggle.setLoop(2)
+              mainToggle.setImage("amsiedad.png")
+              mainToggle.setImageType("png")
+              mainToggle.setImageSize(120)
+              self.setCentralWidget(mainToggle)
+        
+        
+
+      app = QtWidgets.QApplication([])
+      w = Window()
+      w.show()
+      app.exec()
    
    
   
