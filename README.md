@@ -3,6 +3,26 @@ Componente Personalizado con QT y Python
 ## Antes que nada decir que es mejor ver el código o descargarlo desde el [repositorio](https://github.com/Casta626/Trabajo-4-DIN).
 ## Tambiém puedes descargarlo desde la ventana de comandos con el comando:
 pip install -i https://test.pypi.org/simple/ rebotines==0.1
+
+## Una guía de lo que he utilizado:
+### Herramientas de diseño:
+Para el diseño he utilizado la aplicación qt designer y luego he pasado el archivo .ui a .py con el comando
+pyside6-uic rebotines.ui -o ui_rebotines.py       
+y para los recursos(imágenes)
+pyside6-rcc recursos.rc -o recursos.py
+### Herramientas de desarrollo:
+Para trabajar con el proyecto he utilizado Visual Studio Code y la ventana de comandos.
+### Herramientas de prueba:
+He utilizado las librerias pytest y unitest para comprobar lo que sucedia en la aplicación mediante tests,
+las he utilizado desde la consola y desde el Visual Studio Code.
+### Librerías:
+#### Algunas ya las he comentado antes pero voy a ponerlas todas aquí:
+pytest
+unitest
+pyside6
+Dentro del proyecto he importado ctypes
+
+## Con esto pasamos al código
 ### El código de rebotines es bastante simple, se divide en tres archivos:
 ## ui_rebotines.py
 ### Aquí esta todo el código que se refiere a la interfaz, si quieres contribuir puedes modificar lo que quieras siempre y cuando no afecte luego a los test (más adelante los enseñaré), este es su código:
