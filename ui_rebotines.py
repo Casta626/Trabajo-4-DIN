@@ -19,7 +19,7 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QMenuBar,
     QSizePolicy, QSlider, QStatusBar, QToolBar,
     QWidget)
-import recursos
+import recursos_rebotines
 
 class Ui_MainWindow(object):
         
