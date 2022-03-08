@@ -27,7 +27,7 @@ class Test (unittest.TestCase):
         self.assertEqual(window.getImageType(), "png")
 
         window.setImageSize(24)
-        self.assertEqual(window.getImageSize(), 100)
+        self.assertEqual(window.getImageSize(), 24)
 
     def testLoop(self):
         app=QApplication.instance()
